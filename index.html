@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henry Immanuel Sihombing</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-semibold">Henry Immanuel Sihombing</h1>
+    <nav>
+      <a href="#cv" class="px-3 hover:underline">CV</a>
+      <a href="#gallery" class="px-3 hover:underline">Gallery</a>
+    </nav>
+  </header>
+
+  <main class="p-6 max-w-5xl mx-auto">
+    <!-- Intro -->
+    <section class="text-center py-10" id="intro">
+      <h2 class="text-3xl font-bold mb-4">Selamat datang 👋</h2>
+      <p class="text-lg text-gray-700">Saya Henry, seorang Actuary dan Data Enthusiast dari Jakarta.</p>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="mt-10">
+      <h3 class="text-2xl font-semibold mb-4">Curriculum Vitae</h3>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-200 bg-white rounded-xl shadow-sm">
+          <thead class="bg-gradient-to-r from-blue-600 to-indigo-500 text-white">
+            <tr>
+              <th class="py-3 px-4 text-left font-semibold">Level</th>
+              <th class="py-3 px-4 text-left font-semibold">School</th>
+              <th class="py-3 px-4 text-left font-semibold">Final Project</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50 transition">
+              <td class="py-3 px-4">Bachelor of Actuarial Science</td>
+              <td class="py-3 px-4">Department of Mathematics, Brawijaya University</td>
+              <td class="py-3 px-4 text-blue-600 hover:underline">
+                <a href="https://repository.ub.ac.id/id/eprint/220473/" target="_blank">
+                  Model Valuasi Premi dan Cadangan Manfaat Asuransi Nilai Aset Berbasis Peramalan Risiko
+                </a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition">
+              <td class="py-3 px-4">Senior High School</td>
+              <td class="py-3 px-4">SMAN 3 Tarutung</td>
+              <td class="py-3 px-4 text-gray-400">–</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="mt-16">
+      <h3 class="text-2xl font-semibold mb-6 text-center">Galeri Foto</h3>
+      <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section>
+  </main>
+
+  <footer class="text-center py-6 border-t mt-8 text-sm text-gray-500">
+    © 2025 Henry Immanuel Sihombing
+  </footer>
+
+  <script>
+    // Load gallery.json
+    fetch('gallery.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('gallery-container');
+        Object.entries(data).forEach(([category, photos]) => {
+          const sectionTitle = document.createElement('h4');
+          sectionTitle.textContent = category;
+          sectionTitle.className = "col-span-full text-lg font-semibold mt-6";
+          container.appendChild(sectionTitle);
+
+          photos.forEach(photo => {
+            const div = document.createElement('div');
+            div.className = "bg-white rounded-xl shadow hover:shadow-lg transition";
+            div.innerHTML = `
+              <img src="${photo.src}" alt="${photo.caption}" class="rounded-lg w-full h-48 object-cover">
+              <p class="text-sm text-center mt-2 text-gray-600">${photo.caption}</p>
+            `;
+            container.appendChild(div);
+          });
+        });
+      });
+  </script>
+</body>
+</html>

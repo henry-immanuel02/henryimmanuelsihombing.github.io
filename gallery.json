@@ -1,0 +1,14 @@
+{
+  "Aktuaria": [
+    { "src": "images/aktuaria/aktuaria1.jpg", "caption": "Presentasi reserving system" },
+    { "src": "images/aktuaria/aktuaria2.jpg", "caption": "Workshop aktuaria modern" }
+  ],
+  "Event Kampus": [
+    { "src": "images/event_kampus/kampus1.jpg", "caption": "Seminar Matematika" },
+    { "src": "images/event_kampus/kampus2.jpg", "caption": "Wisuda Brawijaya" }
+  ],
+  "Kegiatan Gereja": [
+    { "src": "images/gereja/gereja1.jpg", "caption": "Pelayanan Natal" },
+    { "src": "images/gereja/gereja2.jpg", "caption": "Kegiatan Pemuda" }
+  ]
+}
